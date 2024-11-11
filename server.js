@@ -1,6 +1,6 @@
 const express = require('express')
 const path = require('path')
-//const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4000;
 
 const { engine } = require('express-handlebars')
 const bodyParser = require('body-parser')
@@ -29,7 +29,8 @@ app.set('view engine', '.hbs')
 connectDb()
 .then(data => {
     console.log(' >> banco de dados conectado com sucesso:\n')
-    app.listen(8000, () => {
+    //app.listen(8000, () => {
+      app.listen(port, () => {
         console.log('Servidor rodando na porta 8000:\n')
     }).on('error', err =>
         console.log('Erro ao ligar o servidor:\n', err))
